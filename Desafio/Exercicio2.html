@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Zilla+Slab&display=swap" rel="stylesheet">
+    <title>Exercio_2</title>
+</head>
+
+
+</style>
+
+<body>
+
+   
+    <fieldset class="exercicio-container">
+
+        <legend>Adcionar Exercicio</legend>
+        
+        <input type="number" name="" id="time" placeholder="Digite as horas">
+        
+        <select name="" id="type">
+            <option value="">Selecione o Exercicio...</option>
+            <option value="Gluteos e Quadriceps">Gluteos e Quadriceps</option>
+            <option value="Posterior e Panturrilha">Posterior e Panturrilha</option>
+            <option value="Costas e Biceps">Costas e Biceps</option>
+            <option value="Peito e Triceps">Peito e Triceps</option>
+            <option value="Ombro e Perna">Ombro e Perna</option>
+            <option value="Parte Superior">Parte Superior</option>
+            <option value="Parte Inferior">Parte Inferior</option>
+        </select>
+
+        <input type="date" name="" id="date">
+
+        <button  class = "btn" onclick="add()">Add</button>
+
+    </fieldset><br>
+    
+    <section class="lista">
+
+    <ul id="listaTempo">Tempo</ul>
+        
+    <ul id="listaTipo"> Tipo </ul>
+    
+    <ul id="listaData"> Data </ul>
+    
+     
+</section>
+
+<div id="total"></div>
+
+    <script>
+
+            var lista = [];
+        function Exercicio(tempo, tipo, data) {
+            this.tempo =parseInt(document.getElementById('time').value);
+            this.tipo = document.getElementById('type').value;
+            this.data = document.getElementById('date').value;
+            
+        }
+
+        
+        function add(){ 
+            
+        
+            lista.push(new Exercicio());
+
+            var tempo = document.createElement("li");
+            var tipo = document.createElement("li");
+            var data = document.createElement("li");
+
+            for (let i = 0; i < lista.length; i++) {
+                tempo.innerHTML = lista[i].tempo;
+                document.getElementById("listaTempo").appendChild(tempo);
+                tipo.innerHTML = lista[i].tipo;
+                document.getElementById("listaTipo").appendChild(tipo);
+                data.innerHTML = lista[i].data;
+                document.getElementById("listaData").appendChild(data);
+            }
+            
+    
+
+            var time = 0;
+            for (let i = 0; i < lista.length; i++) {
+                 time += lista[i].tempo;
+            } 
+          
+                document.getElementById('total'). innerHTML = "Você cumpriu "+time+ " horas"
+            }
+            
+
+        // Exercicio.prototype = {
+        //     addItem: function (){
+        //         this.lista.push(new Exercicio());
+        //         document.querySelector('lista').addEventListener('click', Exercicio.addItem());
+        //     }
+        // }
+
+        // var lista = [];
+
+        // function addExercicio(tempo, tipo, data) {
+        //     tempo = 
+        //     tipo = 
+        //     data = 
+
+        //     lista.push(new Exercicio());
+        //     console.log(lista);
+            
+        //     document.getElementById('lista').innerHTML = (tempo + " " + tipo + " " + data);
+        //     document.getElementById('tipo').innerHTML = lista;
+        
+        // }
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
